@@ -1,0 +1,44 @@
+<% provide(:title, 'Sign up') %>
+<p><b>REGISTRATION</b></p>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag 'http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js' %>
+  <%= javascript_include_tag 'app_assets_javascripts_myscripts' %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for :users ,url: users_path do |f| %>
+      <%= f.label :name,"First Name" %><br>
+      <%= f.text_field :first_name %><br>
+      
+      <%= f.label :name,"Last Name" %><br>
+      <%= f.text_field :last_name %><br>
+
+      <%= f.label :password,"Password" %><br>
+      <%= f.password_field :password %><br>
+    
+      <%= f.label :password_confirmation, "Confirm Password" %><br>
+      <%= f.password_field :password_confirmation %><br>
+
+      <%= f.label :city,"City" %><br>
+      <%= f.text_field :city %><br>
+
+      <%= f.label :state,"State" %><br>
+      <%= f.text_field :state %><br> 
+
+      <%= f.label :country,"Country" %><br>
+      <%= f.text_field :country %><br>
+
+      <%= f.label :address,"Address" %><br>
+      <%= f.text_field :address %><br> 
+
+
+      <%= f.label :email %><br>
+      <%= f.email_field :email %><br>
+
+    
+
+      <%= f.submit "Submit", class: "btn btn-primary" ,onclick: users_path %><br>
+      <p>Existing user :
+      <%= link_to ' login', welcome_index_path %>
+    <% end %>
+  </div>
+</div>

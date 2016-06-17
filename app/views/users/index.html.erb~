@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="file:///home/rkhandelwal/Desktop/login.js"></script>
+<link rel="stylesheet" type="text/css" href="file:///home/rkhandelwal/Desktop/login.css" />
+</head>
+<body>
+<div>
+<form name="myForm" onsubmit="return validateForm()" action="#">
+  Username:<br>
+  <input type="text" name="username" id="username" onblur="validateUsername()"><span id="errfn"></span>
+  <br>
+  Password:<br>
+  <input type="password" name="password" id="password" onblur="validatePassword()"><span id="errfn1"></span><br><br>
+  <button>Login</button>&nbsp;&nbsp;
+ 
+ <%= link_to 'Registration', new_users_path %>
+
+</form>
+</div>
+</body>
+</html>
+

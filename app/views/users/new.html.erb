@@ -1,0 +1,43 @@
+<% provide(:title, 'Sign up') %>
+<p><b>REGISTRATION</b></p>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for :users ,url: users_path,:onsubmit => "validateForm()" do |f| %>
+      <%= f.label :name,"First Name" %><br>
+      <%= f.text_field :first_name, :required => true ,:onblur => "validateUsername()"%><span id="errfn"></span><br>
+      
+      <%= f.label :name,"Last Name" %><br>
+      <%= f.text_field :last_name, :required => true,:onblur => "validateLastname()" %><span id="errfn1"></span><br>
+
+      <%= f.label :password,"Password" %><br>
+      <%= f.password_field :password, :required => true,:onblur => "validatePassword()" %><span id="errfn2"></span><br>
+    
+      <%= f.label :password_confirmation, "Confirm Password" %><br>
+      <%= f.password_field :password_confirmation, :required => true ,:onblur => "validateConfirmPassword()"%><span id="errfn3"></span><br>
+
+      <%= f.label :city,"City" %><br>
+      <%= f.text_field :city, :required => true ,:onblur => "validateCity()"%><span id="errfn4"></span><br>
+
+      <%= f.label :state,"State" %><br>
+      <%= f.text_field :state, :required => true ,:onblur => "validateState()"%><span id="errfn5"></span><br>
+
+      <%= f.label :country,"Country" %><br>
+      <%= f.text_field :country, :required => true,:onblur => "validateCountry()" %><span id="errfn6"></span><br>
+
+      <%= f.label :address,"Address" %><br>
+      <%= f.text_field :address, :required => true,:onblur => "validateAddress()" %><span id="errfn7"></span><br>
+
+
+      <%= f.label :email %><br>
+      <%= f.email_field :email , :required => true,:onblur => "validateEmail()"%><span id="errfn8"></span><br>
+
+
+    
+
+      <%= f.submit "Submit", class: "btn btn-primary", id: "form_submission" %><br>
+      <p>Existing user :
+      <%= link_to ' login', root_path %>
+    <% end %>
+  </div>
+</div>

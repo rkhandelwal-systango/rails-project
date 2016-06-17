@@ -1,0 +1,22 @@
+
+<% provide(:title, 'log in') %>
+<p><b>LOGIN :</b></p>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for :users ,url: login_path,:onsubmit => "validateForm()" do |f| %>
+      <%= f.label :email,"Email :" %><br>
+      <%= f.email_field :email, :required => true ,:onblur => "validateEmail()"%><span id="errfn"></span><br>
+      
+      <%= f.label :password,"Password" %><br>
+      <%= f.password_field :password, :required => true,:onblur => "validatePassword()" %><span id="errfn1"></span><br>
+
+     
+    
+
+      <%= f.submit "Submit", class: "btn btn-primary", id: "form_submission" %><br>
+      <p>Registration :
+      <%= link_to 'Registration', new_user_path %>
+    <% end %>
+  </div>
+</div>
