@@ -1,6 +1,5 @@
 $( document ).ready(function() {
   $("#form_submission").click(function() {
-    alert( "Validating" );
     validateForm();
   });
 });

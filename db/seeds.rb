@@ -5,3 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+admin = User.new({ first_name: "admin",last_name: "admin",password: "admin",city: "indore",state: "MP",
+	country: "india",address: "indore", email: 'myadmin@rubyonrails.com'
+            })
+    
+
+    if admin.valid?
+      admin.save()
+
+    elsif admin.errors.any?
+      admin.errors.full_messages.each do |msg|
+        puts msg
+      end
+    else
+      puts "****NOT VALID****"
+    end

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   #get 'welcome/index', to: 'welcome#index' 
   get "output", to: "users#output"
   post 'login', to: 'users#login'
+  get 'index', to: 'admin#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

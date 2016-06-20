@@ -1,12 +1,13 @@
 <h1>Welcome :</h1>
 
- <% @user.each do |s| %>
-      <td><%= s.first_name %></td>
-      <td><%= s.last_name %></td>
- <% end %><br><br>
+
+      <td><%= @user.first_name %></td>
+      <td><%= @user.last_name %></td>
+<br><br>
  
 
 
-<%= link_to 'SIGN OUT', root_path %>
+<%= link_to 'SIGN OUT', root_path %><br>
 
+<%= link_to 'ACCOUNT DETAILS',edit_user_path(@user.id) %>
 

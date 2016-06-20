@@ -1,16 +1,18 @@
-
-<p><b>UPDATE</b></p>
-
+<h1>LETs UPDATE</h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for :users ,url: user_path,:onsubmit => "validateForm()" ,method: :patch do |f| %>
+    <%= form_for :users ,url: user_path(@user),:onsubmit => "validateForm()" ,method: :patch do |f| %>
       <%= f.label :name,"First Name" %><br>
       <%= f.text_field :first_name, :required => true ,:onblur => "validateUsername()"%><span id="errfn"></span><br>
       
       <%= f.label :name,"Last Name" %><br>
       <%= f.text_field :last_name, :required => true,:onblur => "validateLastname()" %><span id="errfn1"></span><br>
 
-      
+      <%= f.label :password,"Password" %><br>
+      <%= f.password_field :password, :required => true,:onblur => "validatePassword()" %><span id="errfn2"></span><br>
+    
+      <%= f.label :password_confirmation, "Confirm Password" %><br>
+      <%= f.password_field :password_confirmation, :required => true ,:onblur => "validateConfirmPassword()"%><span id="errfn3"></span><br>
 
       <%= f.label :city,"City" %><br>
       <%= f.text_field :city, :required => true ,:onblur => "validateCity()"%><span id="errfn4"></span><br>
@@ -27,17 +29,11 @@
 
       <%= f.label :email %><br>
       <%= f.email_field :email , :required => true,:onblur => "validateEmail()"%><span id="errfn8"></span><br>
-      ----------------------------
-      <br><br>
-      <%= f.label :password,"Password :" %><br>
-      <%= f.password_field :password, :required => true,:onblur => "validatePassword()" %><span id="errfn2"></span><br>
-    
-      <%= f.label :password_confirmation, "Confirm Password :" %><br>
-      <%= f.password_field :password_confirmation, :required => true ,:onblur => "validateConfirmPassword()"%><span id="errfn3"></span><br>
+
+
     
 
-      <%= f.submit "Update", class: "btn btn-primary", id: "form_submission" %><br>
-    
+      <%= f.submit "UPDATE", class: "btn btn-primary", id: "form_submission" %><br>
     <% end %>
   </div>
 </div>
