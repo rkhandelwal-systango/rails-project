@@ -1,0 +1,20 @@
+<h1>ARTICLES</h1>
+<p> <b> Admin </b></p>
+<table border="1" style="width:100%">
+<tr>
+   <th>Description</th>
+   <th>Text</th>
+   </tr>
+   </table>
+<% @articles.each do |article| %>
+    <table border="1" style="width:100%">
+   
+   <tr>
+       <td> <%= article.description %> </td>
+        <td><%= article.text %></td>
+        <td><%= link_to 'Delete',article_path(article), :method => :delete %></td>
+    </tr>
+    </table>
+
+<% end %>
+<%= link_to 'SIGN OUT', logout_path %> 

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :users
-
+  resources :articles
+  resources :admin 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -8,9 +9,16 @@ Rails.application.routes.draw do
   root 'welcome#index'
   #root 'users#index'
   #get 'welcome/index', to: 'welcome#index' 
-  get "output", to: "users#output"
+  #get "output", to: "users#output"
   post 'login', to: 'users#login'
-  get 'index', to: 'admin#index'
+  #get 'index', to: 'admin#index'
+  get "logout", to: "users#logout"
+  #get "every", to: "articles#every"
+  get "users_list", to: "admin#users_list"
+  get "articles_list", to: "admin#articles_list"
+
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

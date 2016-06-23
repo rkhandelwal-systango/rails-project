@@ -1,4 +1,5 @@
 class UsersController < ApplicationController  
+before_filter :authenticate, :except => [:login, :create, :new]
 
 def new 
   @user = User.new
@@ -25,7 +26,6 @@ def update
       render 'edit'
       end
   else
-    flash.alert = "Enter correct password"
   render 'edit' 
 
  end
@@ -43,24 +43,42 @@ end
 def login
 	@user = User.where(email: params[:users][:email], password: params[:users][:password]).first
 	 if @user.present? 
+    creating_session
     if @user.role == 'admin'
-      redirect_to index_path
-    elsif @user.present?
-        render "login"
+      redirect_to admin_index_path
     else
-        render "root"
+      render "login"
     end
-  else
-    flash[:error] = 'Login unsuccessful'
+   else
     redirect_to root_path
-    
-  end
+   end
+   
 end
+
 def destroy
     @user = User.find(params[:id])
     @user.destroy
     redirect_to index_path
 end
+
+def logout
+    destroy_session 
+    redirect_to root_path
+end  
+
+def creating_session
+session[:current_user] = @user.id
+end
+
+def destroy_session
+session[:current_user] = nil
+end  
+
+
+def save_referer
+  session['referer'] = request.env["HTTP_REFERER"] || 'none' unless session['referer'] && !is_logged_in?
+end
+
 def user_params
     params.require(:users).permit(:first_name, :last_name, :password, :city, :state, :country, :address, :email )
 end

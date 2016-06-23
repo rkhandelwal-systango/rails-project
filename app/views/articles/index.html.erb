@@ -1,0 +1,28 @@
+<p> <b> Description/Text </b></p>
+<table border="1" style="width:100%">
+<tr>
+   <td>Description</td>
+   <td>text</td>
+   <td>Created by<td>
+   </tr>
+</table>
+
+<% @articles.each do |article| %>
+
+<table border="1" style="width:100%">
+<tr>
+    <td><b><%= article.description %></b></td>
+    <td><%= article.text %></td>
+    <td><%= article.user.first_name %></td>
+    <% if article.user_id == session[:current_user] %>
+    <td><%= link_to 'Delete',article_path(article), :method => :delete %></td>
+    <% end %>
+</tr>
+</table>
+<br><br>
+
+<% end %>
+
+<%= link_to 'SIGN OUT', logout_path %> <br>
+
+<%= link_to 'NEW ARTICLE', new_article_path %>
